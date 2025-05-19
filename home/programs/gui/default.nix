@@ -27,4 +27,5 @@
 		tageditor # ID3 tag editor
 		image-roll
 	];
+	services.kdeconnect.enable = true;
 }

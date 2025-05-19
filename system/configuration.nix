@@ -73,8 +73,8 @@
 
     # Enable the OpenSSH daemon.
     openssh = {
-    enable = true;
-    ports = [ ];
+    enable = false;
+    ports = [ 22 ];
     settings = {
       PasswordAuthentication = false;
       AllowUsers = null;
@@ -199,9 +199,16 @@
   # Open ports in the firewall.
   networking.firewall = {
 	enable = true;
-	allowedTCPPorts = [ 22 ];
+	allowedTCPPorts = [ ];
 	allowedUDPPorts = [ ];
+	allowedTCPPortRanges = [ 
+		{ from = 1714; to = 1764; } # KDE CONNECT
+	];
+	allowedUDPPortRanges = [
+		{ from = 1714; to = 1764; } # KDE CONNECT
+	];
   };
+
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
