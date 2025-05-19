@@ -61,6 +61,9 @@
     # Enable CUPS to print documents.
     printing.enable = true;
 
+    # allow automounting disks
+    udisks2.enable = true;
+
     # Enable sound.
     pipewire = {
       enable = true;
