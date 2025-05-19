@@ -13,7 +13,7 @@
 
       background = [
         {
-          path = "/home/ndebruin/config/desktop/wallpapers/dish.jpg";
+          path = "/home/ndebruin/.dotfiles/home/desktop/wallpapers/dish.jpg";
           blur_passes = 1;
           blur_size = 8;
         }

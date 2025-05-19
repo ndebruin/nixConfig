@@ -21,7 +21,7 @@
   boot.loader.efi.canTouchEfiVariables = false; #t730 firmware bug fix, normally should be true
 
   networking = {
-	hostName = "nixos-dev";
+	hostName = "nixos-dev2";
 	networkmanager.enable = true;
 
 	# configure proxy if needed

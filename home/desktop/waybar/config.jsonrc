@@ -16,7 +16,7 @@
       "pulseaudio",
       "network",
       "tray",
-      "temperature",
+//       "temperature",
       "backlight",
       "battery",
       "battery#bat2",

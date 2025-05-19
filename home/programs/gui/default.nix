@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, pkgs-unstable, ...}:
 {
         home.packages = with pkgs; [
 
@@ -22,10 +22,13 @@
                 remmina # rdp client
                 lollypop # music library player
                 cheese # webcam
-		firefox
-		chromium
 		tageditor # ID3 tag editor
 		image-roll
+                cromite
 	];
 	services.kdeconnect.enable = true;
+        imports = 
+                import (./firefox.nix) ++
+                import (./chrome.nix);
+        
 }

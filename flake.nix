@@ -14,7 +14,7 @@
 #    waybar.url = "github:Alexays/Waybar/master";
   };
 
-  outputs = { home-manager, self, nixpkgs, ... }@inputs:
+  outputs = { home-manager, self, nixpkgs, nixpkgs-unstable, ... }@inputs:
 
 	let
 		system = "x86_64-linux";
@@ -27,11 +27,17 @@
 			};
 		};
 		allowed-unfree-packages = [ "slack" ];
+		pkgs-unstable = import nixpkgs-unstable {
+			inherit system;
+			config = {
+				allowUnfree = false;
+			};
+		};
 
 	lib = nixpkgs.lib;
 
 	in {
-		nixosConfigurations."nixos-dev" = nixpkgs.lib.nixosSystem {
+		nixosConfigurations."nixos-dev2" = nixpkgs.lib.nixosSystem {
 			specialArgs = {
 				inherit inputs;
 				inherit pkgs;
@@ -52,6 +58,7 @@
 		        extraSpecialArgs = {
 			          inherit inputs;
 			          inherit pkgs;
+					  inherit pkgs-unstable;
 			          inherit allowed-unfree-packages;
 			};
 
