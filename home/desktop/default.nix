@@ -1,0 +1,10 @@
+[
+	./hyprland
+	./hyprlock
+	./hypridle
+	./hyprpaper
+	./waybar
+	./swaync
+	./utils
+	./launcher
+]
