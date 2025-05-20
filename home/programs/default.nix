@@ -5,4 +5,5 @@
 	./chrome
 	./firefox
 	./vscode
+	./platformio
 ]
