@@ -22,9 +22,8 @@
                 remmina # rdp client
                 lollypop # music library player
                 cheese # webcam
-		        tageditor # ID3 tag editor
-		        image-roll
-                cromite
+		tageditor # ID3 tag editor
+		image-roll
 	];
 	services.kdeconnect.enable = true;        
 }

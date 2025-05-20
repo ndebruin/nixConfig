@@ -11,16 +11,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+	nur = {
+		url = "github:nix-community/NUR";
+		inputs.nixpkgs.follows = "nixpkgs";
+	};
+
 #    waybar.url = "github:Alexays/Waybar/master";
   };
 
-  outputs = { home-manager, self, nixpkgs, nixpkgs-unstable, ... }@inputs:
+  outputs = { home-manager, self, nixpkgs, nixpkgs-unstable, nur, ... }@inputs:
 
 	let
 		system = "x86_64-linux";
 
 		pkgs = import nixpkgs {
 			inherit system;
+			overlays = [ nur.overlays.default ];
 			config = {
 				allowUnfree = true; # possibly change this later
 				allowUnfreePredicate = _: true;
@@ -41,13 +47,18 @@
 			specialArgs = {
 				inherit inputs;
 				inherit pkgs;
+				inherit pkgs-unstable;
 				inherit allowed-unfree-packages;
 				inherit system;
+				inherit nur;
 			};
+
+			
 			
 			modules = [
 				./system/configuration.nix
 				home-manager.nixosModule
+				nur.modules.nixos.default
 			];
 		};
 		homeManagerConfigurations.ndebruin = home-manager.lib.homeManagerConfiguration {
@@ -59,6 +70,7 @@
 			          inherit inputs;
 			          inherit pkgs;
 					  inherit pkgs-unstable;
+					  inherit nur;
 			          inherit allowed-unfree-packages;
 			};
 

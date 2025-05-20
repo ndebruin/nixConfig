@@ -1,6 +1,6 @@
 {pkgs, pkgs-unstable, ...}:
 {
-    home.packages = with pkgs-unstable; [
-        cromite
+    home.packages = with pkgs; [
+        chromium
     ];
 }
