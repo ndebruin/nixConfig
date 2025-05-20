@@ -22,5 +22,6 @@
                 neofetch
                 python3
 		killall
+		minicom
 	];
 }

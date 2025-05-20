@@ -3,6 +3,7 @@
         home.packages = with pkgs; [
 
                 # GUI programs
+		arduino-ide
                 qtcreator
                 gimp
                 webcord # alt discord client

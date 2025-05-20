@@ -1,22 +1,23 @@
 {pkgs, pkgs-unstable, ...}:
 {
-programs.vscode = {
+	programs.vscode = {
                 enable = true;
-                package = pkgs.vscode;
-                extensions = with pkgs.vscode-extensions; [
+                package = pkgs.vscode-fhs;
+		userSettings = {
+			"files.autoSave" = "off";
+			"editor.tabSize" = 2;
+		};
+                extensions = with pkgs-unstable.vscode-extensions; [
                         # python
                         ms-python.python
                         ms-python.debugpy
                         ms-python.vscode-pylance
                         
-                        # platformIO
-                        platformio-platformio-ide
-                        seryibaran.platformio-big-buttons
-
                         # C/C++
-                        ms-vscode.cpptools
-                        ms-vscode.cpptools-themes
-                        twxs.cmake
+                        ms-vscode.cpptools-extension-pack
+			ms-vscode.cpptools
+#                        ms-vscode.cpptools-themes
+#                        twxs.cmake
                         ms-vscode.cmake-tools
                         
                         # nix support
@@ -24,8 +25,11 @@ programs.vscode = {
 
                         # misc
                         mechatroner.rainbow-csv
-                        mathematic.vscode-pdf
+                        tomoki1207.pdf
+
+			# remote dev
                         ms-vscode-remote.remote-ssh
+			ms-vscode-remote.remote-ssh-edit
                 ];
         };
 }

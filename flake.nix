@@ -11,15 +11,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-	nur = {
-		url = "github:nix-community/NUR";
-		inputs.nixpkgs.follows = "nixpkgs";
-	};
+    nur = {
+        url = "github:nix-community/NUR";
+	inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-ld = {
+        url = "github:Mic92/nix-ld";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
 
 #    waybar.url = "github:Alexays/Waybar/master";
   };
 
-  outputs = { home-manager, self, nixpkgs, nixpkgs-unstable, nur, ... }@inputs:
+  outputs = { home-manager, self, nixpkgs, nixpkgs-unstable, nur, nix-ld, ... }@inputs:
 
 	let
 		system = "x86_64-linux";
@@ -36,7 +41,7 @@
 		pkgs-unstable = import nixpkgs-unstable {
 			inherit system;
 			config = {
-				allowUnfree = false;
+				allowUnfree = true;
 			};
 		};
 
@@ -51,6 +56,7 @@
 				inherit allowed-unfree-packages;
 				inherit system;
 				inherit nur;
+				inherit nix-ld;
 			};
 
 			
@@ -59,6 +65,7 @@
 				./system/configuration.nix
 				home-manager.nixosModule
 				nur.modules.nixos.default
+#                                nix-ld.nixosModules.nix-ld
 			];
 		};
 		homeManagerConfigurations.ndebruin = home-manager.lib.homeManagerConfiguration {

@@ -55,6 +55,8 @@
   # then home-manager configures hyprland for your specific user
   programs.hyprland.enable = true;
 
+#  programs.nix-ld.dev.enable = true;
+
   # list services that you want to enable
   services = {
 
@@ -110,6 +112,22 @@
  
     # expose power management calls to applications
     upower.enable = true;
+
+    # udev help
+    #udev.packages = [
+    #	pkgs-unstable.platformio-core
+    #	pkgs-unstable.openocd
+    #];
+    udev.extraRules = ''
+      # UDEV rules for Teensy USB devices
+      ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04*", ENV{ID_MM_DEVICE_IGNORE}="1", ENV{ID_MM_PORT_IGNORE}="1"
+      ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789a]*", ENV{MTP_NO_PROBE}="1"
+      KERNEL=="ttyACM*", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04*", MODE:="0666""
+      KERNEL=="hidraw*", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04*", MODE:="0666"
+      SUBSYSTEMS=="usb", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04*", MODE:="0666"
+      KERNEL=="hidraw*", ATTRS{idVendor}=="1fc9", ATTRS{idProduct}=="013*", MODE:="0666"
+      SUBSYSTEMS=="usb", ATTRS{idVendor}=="1fc9", ATTRS{idProduct}=="013*", MODE:="0666"
+    '';
 
     # power management configs
     tlp = {
