@@ -2,10 +2,7 @@
 {
         home.packages = with pkgs; [
 
-
                 # GUI programs
-                vscodium-fhs
-                platformio
                 qtcreator
                 gimp
                 webcord # alt discord client
@@ -25,5 +22,5 @@
 		tageditor # ID3 tag editor
 		image-roll
 	];
-	services.kdeconnect.enable = true;        
+	services.kdeconnect.enable = true;
 }

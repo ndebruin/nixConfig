@@ -11,5 +11,7 @@
                 wireguard-tools
                 wg-netmanager
 
+                syncthing
+
 	];
 }

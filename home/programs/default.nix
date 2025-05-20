@@ -4,4 +4,5 @@
 	./remote
 	./chrome
 	./firefox
+	./vscode
 ]
