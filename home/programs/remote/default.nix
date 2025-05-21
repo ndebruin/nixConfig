@@ -10,8 +10,9 @@
 		# home vpn bits
                 wireguard-tools
                 wg-netmanager
-
-                syncthing
-
 	];
+	services.syncthing = {
+		enable = true;
+		tray.enable = false;
+	};
 }
