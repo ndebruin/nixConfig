@@ -35,6 +35,7 @@
 			config = {
 				allowUnfree = true; # possibly change this later
 				allowUnfreePredicate = _: true;
+				pulseaudio = true;
 			};
 		};
 		allowed-unfree-packages = [ "slack" ];
@@ -42,6 +43,7 @@
 			inherit system;
 			config = {
 				allowUnfree = true;
+				pulseaudio = true;
 			};
 		};
 

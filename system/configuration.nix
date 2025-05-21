@@ -57,6 +57,27 @@
 
 #  programs.nix-ld.dev.enable = true;
 
+  hardware.bluetooth = {
+    enable = true; # enable bluetooth support
+    powerOnBoot = true; # start up bluetooth modem on boot
+    settings = {
+      General = {
+        Enable = "Source,Sink,Media,Socket";
+        Experimental = true;
+      };
+    };
+  };
+  
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+    extraConfig = ''
+      load-module module-switch-on-connect
+      load-module module-bluetooth-policy
+      load-module module-bluetooth-discover
+    '';
+  };
+  
   # list services that you want to enable
   services = {
 
@@ -67,14 +88,22 @@
     udisks2.enable = true;
 
     # Enable sound.
-    pipewire = {
-      enable = true;
-      audio.enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
+#    pipewire = {
+#      enable = true;
+#      audio.enable = true;
+#      alsa.enable = true;
+#      alsa.support32Bit = true;
+#      pulse.enable = true;
+#      jack.enable = true;
+#      wireplumber.extraConfig.bluetoothEnhancements = {
+#        "monitor.bluez.properties" = {
+#          "bluez5.enable-sbc-xq" = true;
+#          "bluez5.enable-msbc" = true;
+#          "bluez5.enable-hw-volume" = true;
+#          "bluez5.roles" = [ "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
+#        };
+#      };
+#    };
 
     # Enable the OpenSSH daemon.
     openssh = {
@@ -159,7 +188,7 @@
   users.users.ndebruin = {
      isNormalUser = true;
      description = "Nic DeBruin";
-     extraGroups = [ "wheel" "tty" "networkmanager" "dialout" "usb" "plugdev" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "tty" "networkmanager" "dialout" "usb" "plugdev" "audio" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; []; #packages are managed by home-manager
   };
 
