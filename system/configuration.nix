@@ -18,7 +18,7 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = false; #t730 firmware bug fix, normally should be true
+  boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
 	hostName = "nixos-dev2";
@@ -59,7 +59,7 @@
 
   hardware.bluetooth = {
     enable = true; # enable bluetooth support
-    powerOnBoot = true; # start up bluetooth modem on boot
+    powerOnBoot = false; # don't start up bluetooth modem on boot
     settings = {
       General = {
         Enable = "Source,Sink,Media,Socket";
@@ -88,8 +88,8 @@
     udisks2.enable = true;
 
     # Enable sound.
-#    pipewire = {
-#      enable = true;
+    pipewire = {
+      enable = false;
 #      audio.enable = true;
 #      alsa.enable = true;
 #      alsa.support32Bit = true;
@@ -103,7 +103,7 @@
 #          "bluez5.roles" = [ "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
 #        };
 #      };
-#    };
+    };
 
     # Enable the OpenSSH daemon.
     openssh = {
@@ -214,7 +214,7 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  security.rtkit.enable = true;
+  #security.rtkit.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

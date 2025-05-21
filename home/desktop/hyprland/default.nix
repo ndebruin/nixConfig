@@ -124,8 +124,8 @@
 #          ", xf86Display, movecurrentworkspacetomonitor, +1"
 
           # volume controls
-          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-          ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+          ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
+          ", XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 
           # applications
           "$mainMod, return, exec, kitty"
@@ -171,10 +171,10 @@
       binde =
         [
           # volume controls
-          ", xf86audioraisevolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-          ", xf86audiolowervolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- "
-          "$mainMod, xf86audioraisevolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-          "$mainMod, xf86audiolowervolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- "
+          ", xf86audioraisevolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
+          ", xf86audiolowervolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
+          "$mainMod, xf86audioraisevolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +25%"
+          "$mainMod, xf86audiolowervolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -25%"
 
           # brightness controls
           ", xf86monbrightnessup, exec, brightnessctl set 5%+"
