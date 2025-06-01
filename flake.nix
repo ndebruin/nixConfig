@@ -33,7 +33,7 @@
 			inherit system;
 			overlays = [ nur.overlays.default ];
 			config = {
-				allowUnfree = true; # possibly change this later
+				allowUnfree = true; 
 				allowUnfreePredicate = _: true;
 				pulseaudio = true;
 			};
@@ -58,7 +58,7 @@
 				inherit allowed-unfree-packages;
 				inherit system;
 				inherit nur;
-				inherit nix-ld;
+				# inherit nix-ld;
 			};
 
 			
@@ -67,7 +67,6 @@
 				./system/configuration.nix
 				home-manager.nixosModule
 				nur.modules.nixos.default
-#                                nix-ld.nixosModules.nix-ld
 			];
 		};
 		homeManagerConfigurations.ndebruin = home-manager.lib.homeManagerConfiguration {
@@ -78,8 +77,8 @@
 		        extraSpecialArgs = {
 			          inherit inputs;
 			          inherit pkgs;
-					  inherit pkgs-unstable;
-					  inherit nur;
+					  		inherit pkgs-unstable;
+					  	inherit nur;
 			          inherit allowed-unfree-packages;
 			};
 
