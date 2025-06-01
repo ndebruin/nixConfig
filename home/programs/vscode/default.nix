@@ -6,7 +6,9 @@
 		userSettings = {
 			"files.autoSave" = "off";
 			"editor.tabSize" = 2;
-                        "git."
+                        "explorer.confirmDelete" = false;
+                        "explorer.confirmMove" = true;
+                        "git.enableSmartCommit" = true;
 		};
                 extensions = with pkgs-unstable.vscode-extensions; [
                         # python
