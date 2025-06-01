@@ -50,7 +50,7 @@
 	lib = nixpkgs.lib;
 
 	in {
-		nixosConfigurations."nixos-dev2" = nixpkgs.lib.nixosSystem {
+		nixosConfigurations."faraday" = nixpkgs.lib.nixosSystem {
 			specialArgs = {
 				inherit inputs;
 				inherit pkgs;
