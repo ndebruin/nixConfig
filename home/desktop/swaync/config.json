@@ -26,11 +26,9 @@
     "script-fail-notify": true,
     "widgets": [
       "title",
-      "menubar#desktop",
-      "volume",
-      "backlight#mobile",
-      "mpris",
       "dnd",
+      "volume",
+      "mpris",
       "notifications"
     ],
     "widget-config": {
@@ -39,83 +37,8 @@
         "clear-all-button": true,
         "button-text": " Clear All "
       },
-      "menubar#desktop": {
-        "menu#powermode-buttons": {
-          "label": " 󰌪 ",
-          "position": "left",
-          "actions": [
-            {
-              "label": "Performance",
-              "command": "powerprofilesctl set performance"
-            },
-            {
-              "label": "Balanced",
-              "command": "powerprofilesctl set balanced"
-            },
-            {
-              "label": "Power-saver",
-              "command": "powerprofilesctl set power-saver"
-            }
-          ]
-        },
-        "menu#screenshot": {
-          "label": "  ",
-          "position": "left",
-          "actions": [
-            {
-              "label": "󰹑  Whole screen",
-              "command": "grimblast --notify --cursor --freeze copy output"
-            },
-            {
-              "label": "󰩭  Window / Region",
-              "command": "grimblast --notify --cursor --freeze copy area"
-            }
-          ]
-        },
-        "menu#record": {
-          "label": " 󰕧 ",
-          "position": "left",
-          "actions": [
-            {
-              "label": "  Record screen",
-              "command": "record screen & ; swaync-client -t"
-            },
-            {
-              "label": "  Record selection",
-              "command": "record area & ; swaync-client -t"
-            },
-            {
-              "label": "  Record GIF",
-              "command": "record gif & ; swaync-client -t"
-            },
-            {
-              "label": "󰻃  Stop",
-              "command": "record stop"
-            }
-          ]
-        },
-        "menu#power-buttons": {
-          "label": "  ",
-          "position": "left",
-          "actions": [
-            {
-              "label": "  Lock",
-              "command": "hyprlock"
-            },
-            {
-              "label": "  Reboot",
-              "command": "systemctl reboot"
-            },
-            {
-              "label": "  Shut down",
-              "command": "systemctl poweroff"
-            }
-          ]
-        }
-      },
-      "backlight#mobile": {
-        "label": " 󰃠 ",
-        "device": "panel"
+      "dnd": {
+        "text": " Do Not Disturb"
       },
       "volume": {
         "label": "",
@@ -124,9 +47,6 @@
         "show-per-app": true,
         "show-per-app-icon": true,
         "show-per-app-label": false
-      },
-      "dnd": {
-        "text": " Do Not Disturb"
       },
       "mpris": {
         "image-size": 85,

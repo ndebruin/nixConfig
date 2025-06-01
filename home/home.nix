@@ -37,6 +37,14 @@
 		"x-scheme-handler/https" = "firefox.desktop";
 		"x-scheme-handler/about" = "firefox.desktop";
 		"x-scheme-handler/unknown" = "firefox.desktop";
+		"text/markdown" = "code.desktop";
+		"text/x-csrc" = "arduino-ide.desktop";
+		"text/x-java" = "code.desktop";
+		"text/x-python" = "code.desktop";
+		"text/plain" = "code.desktop";
+		"text/x-c++src" = "code.desktop";
+		"text/x-c++hdr" = "code.desktop";
+		"text/x-chdr" = "code.desktop";
 	};
 	
 	# Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -52,6 +60,15 @@
 		#   org.gradle.console=verbose
 		#   org.gradle.daemon.idletimeout=3600000
 		# '';
+	};
+
+	programs.ssh = {
+		enable = true;
+		extraConfig = "
+			Host *
+				User ndebruin
+				SetEnv TERM=xterm-256color
+		";
 	};
 
 	programs.git = {
