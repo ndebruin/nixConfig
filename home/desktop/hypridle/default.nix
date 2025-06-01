@@ -20,7 +20,7 @@
 
         { # dim backlight
           timeout = 180; # 3 minutes
-          on-timeout = "brightnessctl -s set 10"; # set monitor backlight to 10%
+          on-timeout = "brightnessctl -s set 5%"; # set monitor backlight to 10%
           on-resume = "brightnessctl -r"; #restore
         }
 

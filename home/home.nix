@@ -79,7 +79,7 @@
 	#
 	# or
 	#
-	#  /etc/profiles/per-user/gavin/etc/profile.d/hm-session-vars.sh
+	#  /etc/profiles/per-user/ndebruin/etc/profile.d/hm-session-vars.sh
 	#
 	home.sessionVariables = {
 		EDITOR = "nano";

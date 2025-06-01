@@ -22,6 +22,8 @@
                 cheese # webcam
 		tageditor # ID3 tag editor
 		image-roll
+		prismlauncher
+		jetbrains.clion
 	];
 	services.kdeconnect.enable = true;
 }
