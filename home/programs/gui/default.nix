@@ -4,7 +4,6 @@
 
                 # GUI programs
 		arduino-ide
-                qtcreator
                 gimp
                 webcord # alt discord client
                 signal-desktop
@@ -13,7 +12,6 @@
                 audacity
                 prusa-slicer
                 bambu-studio
-                mpv # media player
                 obs-studio
                 kdePackages.okular # document viewer
                 remmina # rdp client
@@ -21,8 +19,8 @@
                 cheese # webcam
 		tageditor # ID3 tag editor
 		image-roll
-		prismlauncher
-		jetbrains.clion
+		prismlauncher # minecraft launcher
+                vlc
 	];
 	services.kdeconnect.enable = true;
 }

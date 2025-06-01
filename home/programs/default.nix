@@ -7,4 +7,5 @@
 	./vscode
 	./platformio
 	./kicad
+	./cdev
 ]
