@@ -21,7 +21,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
-	hostName = "nixos-dev2";
+	hostName = "faraday";
 	networkmanager.enable = true;
 
 	# configure proxy if needed
@@ -131,13 +131,13 @@
     };
 
     # fingerprint support
-    # fprintd = {
-      # enable = true;
-      # tod = {
-        # enable = true;
-        # driver = pkgs.libfprint-2-tod1-vfs0090;
-      # };
-    # };
+    fprintd = {
+      enable = true;
+      #tod = {
+        #enable = true;
+        #driver = pkgs.libfprint-2-tod1-vfs0090;
+      #};
+    };
  
     # expose power management calls to applications
     upower.enable = true;
@@ -174,8 +174,8 @@
         CPU_MAX_PERF_ON_BAT = 60;
 
         #Optional helps save long term battery health
-        # START_CHARGE_THRESH_BAT0 = 75; # 75 and bellow it starts to charge
-        # STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
+        START_CHARGE_THRESH_BAT0 = 75; # 75 and bellow it starts to charge
+        STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
 
       };
     };

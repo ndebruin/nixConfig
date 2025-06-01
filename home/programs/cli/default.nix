@@ -23,5 +23,6 @@
                 python3
 		killall
 		minicom
+                usbutils
 	];
 }

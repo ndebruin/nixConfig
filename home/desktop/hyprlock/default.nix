@@ -21,15 +21,15 @@
 
       auth = [
         # uncomment to enable fingerprint auth
-        # {
-        # fingerprint.enabled = true;
-        # fingerprint.ready_message = "Scan fingerprint to unlock";
-        # fingerprint.present_message = "Scanning...";
-        # fingerprint.retry_delay = 250; # ms
-        # }
+        #{
+        #  fingerprint.enabled = true;
+        #  fingerprint.ready_message = "Scan fingerprint to unlock";
+        #  fingerprint.present_message = "Scanning...";
+        #  fingerprint.retry_delay = 250; # ms
+        #}
         {
           pam.enabled = true;
-          pam.module = "hyprlock";
+          # pam.module = "hyprlock";
         }
       ];
 
