@@ -6,4 +6,5 @@
 	./firefox
 	./vscode
 	./platformio
+	./kicad
 ]

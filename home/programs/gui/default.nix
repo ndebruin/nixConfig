@@ -9,7 +9,6 @@
                 webcord # alt discord client
                 signal-desktop
                 slack
-                kicad
                 kdePackages.kdenlive
                 audacity
                 prusa-slicer
