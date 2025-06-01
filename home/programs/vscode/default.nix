@@ -9,6 +9,7 @@
                         "explorer.confirmDelete" = false;
                         "explorer.confirmMove" = true;
                         "git.enableSmartCommit" = true;
+                        "git.confirmSync" = false;
 		};
                 extensions = with pkgs-unstable.vscode-extensions; [
                         # python
