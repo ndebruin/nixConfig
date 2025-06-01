@@ -15,6 +15,7 @@
     wl-clipboard
     cliphist
     hyprpolkitagent
+    playerctl
   ];
 
 #  services.hyprpolkitagent.enable = true; # privilege escalation UIs
@@ -64,7 +65,9 @@
           
       monitor=
         [
-  
+	      	"eDP-1, 1920x1200@60, 0x0, 1.25" # internal monitor
+		      "desc:Dell Inc. DELL U2412M M2GCR2A822GL, 1920x1200@60, -1920x0, 1" # home
+	      	" , preferred, auto, 1" # default catch-all rule
         ];
 
       env = [
@@ -133,8 +136,8 @@
           "$mainMod, b, exec, firefox"
           
           # screenshots
-          "$mainMod, PRINT, exec, hyprshot -o ~/pictures/screenshots -m region"
-          "$mainMod SHIFT, PRINT, exec, hyprshot -o ~/pictures/screenshots -m window"
+          "$mainMod SHIFT, s, exec, hyprshot -o ~/pictures/screenshots -m region"
+          "$mainMod, s, exec, hyprshot -o ~/pictures/screenshots -m window"
           " , PRINT, exec, hyprshot -o ~/pictures/screenshots -m output"
 
 
@@ -168,7 +171,7 @@
             10)
         )
          ;
-      binde =
+      bindel =
         [
           # volume controls
           ", xf86audioraisevolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
@@ -184,6 +187,11 @@
         [
           # program launcher
           "$mainMod, Super_L, exec, pkill fuzzel || fuzzel"
+        ];
+      binde = 
+        [
+          # media play pause
+          ", xf86audioplay, exec, playerctl play-pause"
         ];
       
 

@@ -28,6 +28,16 @@
 		size = 32;
 		gtk.enable = true;
 	};
+
+	xdg.mimeApps.enable = true;
+	xdg.mimeApps.defaultApplications = 
+	{
+		"text/html" = "firefox.desktop";
+		"x-scheme-handler/http" = "firefox.desktop";
+		"x-scheme-handler/https" = "firefox.desktop";
+		"x-scheme-handler/about" = "firefox.desktop";
+		"x-scheme-handler/unknown" = "firefox.desktop";
+	};
 	
 	# Home Manager is pretty good at managing dotfiles. The primary way to manage
 	# plain files is through 'home.file'.
@@ -48,6 +58,11 @@
 		enable = true;
 		userName = "Nic DeBruin";
 		userEmail = "nzdebruin@gmail.com";
+		extraConfig.credential = {
+			helper = "manager";
+			credentialStore = "cache";
+			"https://github.com".username = "ndebruin";
+		};
 	};
 
 	programs.gpg = {
@@ -63,6 +78,7 @@
 	home.packages = with pkgs; [
 		git
 		git-crypt
+		git-credential-manager
 		gnupg
 		pinentry-qt 
 		bash
@@ -83,6 +99,7 @@
 	#
 	home.sessionVariables = {
 		EDITOR = "nano";
+		DEFAULT_BROWSER = "firefox";
 	};
 
 }
