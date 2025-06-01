@@ -6,6 +6,7 @@
 		userSettings = {
 			"files.autoSave" = "off";
 			"editor.tabSize" = 2;
+                        "git."
 		};
                 extensions = with pkgs-unstable.vscode-extensions; [
                         # python
