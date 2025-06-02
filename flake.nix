@@ -75,11 +75,11 @@
 
 			# pass inputs as specialArgs
 		        extraSpecialArgs = {
-			          inherit inputs;
-			          inherit pkgs;
-					  		inherit pkgs-unstable;
-					  	inherit nur;
-			          inherit allowed-unfree-packages;
+			        inherit inputs;
+				inherit pkgs;
+		  		inherit pkgs-unstable;
+  			  	inherit nur;
+			        inherit allowed-unfree-packages;
 			};
 
 			# import home.nix

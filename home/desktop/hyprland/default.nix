@@ -16,8 +16,14 @@
     enable = true;
     package = pkgs.hyprland;
 
+    systemd.enable = true;
 
-    # systemd.enable = true;
+    settings = {
+      source = [
+        "~/.config/hypr/hyprland_custom.conf"
+      ];
+    };
+
   };
-  home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
+  home.file.".config/hypr/hyprland_custom.conf".source = ./hyprland.conf;
 }
