@@ -7,6 +7,7 @@
     lm_sensors
     sysstat
     networkmanagerapplet
+    brightnessctl
     dconf
     qt6ct
     blueman 
