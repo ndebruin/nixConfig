@@ -23,6 +23,7 @@
     pavucontrol
     udiskie # handles automatic mounting of portable drives
 #    udisks2 # handles automatic mounting of portable drives
+    gnome-disk-utility
   ];
 
 
